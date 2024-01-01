@@ -1,4 +1,4 @@
-*{
+* {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -10,15 +10,39 @@
   min-height: 100vh;
 }
 
+.else-loader{
+  width: 60%;
+}
+
 .upper {
-  background-color: #FDE2FF;
-  background-image: url("../bg-pattern.svg");
   width: 100%;
   height: 65%;
   top: 0;
   left: 0;
   position: absolute;
   z-index: -1;
+}
+
+.menTextColor {
+  color: #002772;
+}
+
+.womenTextColor {
+  color: #720060;
+}
+
+.menColor {
+  background-color: #d6e6ff;
+  background-image: url("../bg-pattern.svg");
+}
+
+.womenColor {
+  background-color: #fde2ff;
+  background-image: url("../bg-pattern.svg");
+}
+
+.defaultColor {
+  background-color: #dcdcdc;
 }
 
 .bottom {
@@ -28,18 +52,18 @@
 }
 
 .product-card {
-  width: 60%; 
+  width: 100%;
   height: 630px;
   margin: 0 auto;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   text-align: center;
   border-radius: 10px;
-  padding: 20px; 
-  box-sizing: border-box; 
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .product-card .product-image {
@@ -51,21 +75,18 @@
 
 .container {
   margin: 0 60px;
-  /* padding: 40 40px; */
   text-align: left;
 }
 
 .tittle {
-  color: #720060;
   -webkit-line-clamp: 2;
   height: 4rem;
-
 }
 
 .head-description {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
 
 .rating {
@@ -73,22 +94,31 @@
   align-items: center;
 }
 
-.rating-rated::before {
-  content: "";
-  background-image: url(../star-rated.svg);
-  background-repeat: no-repeat;
+.rating-rated {
   width: 20px;
   height: 20px;
-  display: inline-block;
+  border-radius: 50%;
+  border-style: solid;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
-.rating-unrated::before {
-  content: "";
-  background-image: url(../star-unrated.svg);
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
+.menRatingRated {
+  background-color: #002772;
+  border-color: #002772;
+}
+
+.womenRatingRated {
+  background-color: #720060;
+  border-color: #720060;
+}
+
+.menRatingUnrated {
+  border-color: #002772;
+}
+
+.womenRatingUnrated {
+  border-color: #720060;
 }
 
 .product-card .category {
@@ -102,8 +132,11 @@
 }
 
 .product-card .description {
+  display: -webkit-box;
   -webkit-line-clamp: 11;
-  height: 16rem;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  height: 15rem;
   text-align: left;
   font-size: 0.8em;
   margin-top: 0;
@@ -120,7 +153,6 @@
 
 .product-card .price {
   font-size: 2em;
-  color: #720060;
   margin: 20px 5px;
   font-weight: bold;
   margin: auto;
@@ -132,15 +164,12 @@
   align-items: center;
   margin-top: 10px;
   justify-content: space-between;
-  
 }
 
 .product-card .buy-now,
 .product-card .next-product {
   width: 259px;
   height: 42px;
-  border: none;
-  color: #fff;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
@@ -153,21 +182,62 @@
   align-items: center;
 }
 
-.product-card .buy-now {
-  background: #720060;
+.buy-now {
   color: #fff;
+  box-shadow: none;
 }
 
-.product-card .next-product {
-  border: 3px solid #720060;
-  background: #fff;
+.next-product {
+  border-width: 3px;
+  border-style: solid;
+  background-color: #fff;
+}
+
+.menBuyButton {
+  background: #002772;
+  border-color: #002772;
+}
+
+.womenBuyButton {
+  background: #720060;
+  border-color: #720060;
+}
+
+.menNextButton {
+  border-color: #002772;
+  color: #002772;
+}
+
+.womenNextButton {
+  border-color: #720060;
   color: #720060;
 }
 
 .product-unavailable {
+  width: 100%;
   background-image: url(../sad-face.svg);
   background-repeat: no-repeat;
   background-size: center;
   background-position: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+.loader-overlay {
+  width: 60% !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+

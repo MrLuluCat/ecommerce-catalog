@@ -1,18 +1,18 @@
 <template>
 
-    <ItemProduct :product="currentProduct" @fetch-product="fetchProducts"/>
+    <ProductDisplay :product="currentProduct" @fetch-product="fetchProducts"/>
 
 </template>
 
 <script>
 import axios from 'axios';
-import ItemProduct from './components/ItemProduct.vue';
+import ProductDisplay from './components/ProductDisplay.vue';
 
 const API_URL = 'https://fakestoreapi.com/products/';
 
 export default {
   components: {
-    ItemProduct,
+    ProductDisplay,
   },
   data() {
     return {
