@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <button @click="fetchProducts">Next Product</button>
-    <ItemProduct :product="currentProduct" />
-  </div>
+
+    <ItemProduct :product="currentProduct" @fetch-product="fetchProducts"/>
+
 </template>
 
 <script>
@@ -33,7 +32,7 @@ export default {
         ) {
           this.currentProduct = productData;
         } else {
-          this.currentProduct = { title: 'Tidak Tersedia', category: 'Other' };
+          this.currentProduct = { title: 'This product is unavailable to show'};
         }
 
         this.currentIndex = this.currentIndex === 20 ? 1 : this.currentIndex + 1;
@@ -42,5 +41,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.fetchProducts();
+  },
 };
 </script>
+
